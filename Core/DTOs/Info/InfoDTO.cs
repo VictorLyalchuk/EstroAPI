@@ -1,0 +1,17 @@
+﻿using Core.Entities.Info;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.DTOs.Filter
+{
+    public class InfoDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<Options> Options { get; set; }
+    }
+}
