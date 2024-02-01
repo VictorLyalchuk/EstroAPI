@@ -1,5 +1,5 @@
 ﻿using Ardalis.Specification;
-using Core.Entities.Info;
+using Core.Entities.Information;
 
 
 namespace Core.Specification

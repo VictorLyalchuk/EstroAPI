@@ -17,6 +17,8 @@ namespace Core.DTOs.Site
         //public List<Image>? ImagesFile { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; } = string.Empty;
+        public string SubCategoryName { get; set; } = string.Empty;
+        public string MainCategoryName { get; set; } = string.Empty;
         public List<Storage>? Storages { get; set; }
         public int StorageQuantity { get; set; }
         public string URLCategoryName { get; set; } = string.Empty;

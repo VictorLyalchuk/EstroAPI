@@ -1,21 +1,21 @@
-﻿using System;
+﻿using Core.Entities.Information;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Entities.DashBoard;
 
-namespace Core.Entities.Site
+namespace Core.DTOs.Information
 {
-    public class Order
+    public class BagUserDTO
     {
         [Key]
         public int Id { get; set; }
+        public int CountProduct { get; set; }
         public DateTime OrderDate { get; set; }
-        public string IdsProduct { get; set; } = string.Empty;
-        public decimal TotalPrice { get; set; }
+        public List<BagItems>? BagItems { get; set; }
+        public string UserEmail { get; set; }
         public string UserId { get; set; } = string.Empty;
-        public User? Users { get; set; }
     }
 }

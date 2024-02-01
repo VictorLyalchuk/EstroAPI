@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 using Core.DTOs.Filter;
-using Core.Entities.Info;
+using Core.Entities.Information;
 using Core.Entities.Site;
 using System;
 using System.Collections;

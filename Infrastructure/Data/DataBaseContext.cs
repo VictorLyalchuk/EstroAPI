@@ -1,5 +1,5 @@
 ﻿using Core.Entities.DashBoard;
-using Core.Entities.Info;
+using Core.Entities.Information;
 using Core.Entities.Site;
 using Infrastructure.EntitiesConfiguration;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -21,6 +21,7 @@ namespace Infrastructure.Data
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new OptionsConfiguration());
+            builder.ApplyConfiguration(new BagConfiguration());
 
             builder.Entity<MainCategory>().HasData(SeedData.SeedMainCategory());
             builder.Entity<SubCategory>().HasData(SeedData.SeedSubCategory());

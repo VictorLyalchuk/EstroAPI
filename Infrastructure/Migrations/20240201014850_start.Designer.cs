@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240201014850_start")]
+    partial class start
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,8 +78,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BagId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("BagItems");
                 });
@@ -2760,15 +2761,7 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Site.Product", "Product")
-                        .WithMany("BagItems")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Bag");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Core.Entities.Information.Options", b =>
@@ -2929,8 +2922,6 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.Site.Product", b =>
                 {
-                    b.Navigation("BagItems");
-
                     b.Navigation("Images");
 
                     b.Navigation("Storages");

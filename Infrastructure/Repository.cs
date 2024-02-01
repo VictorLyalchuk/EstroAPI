@@ -4,6 +4,7 @@ using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Infrastructure.Data;
+using Core.Entities.Information;
 namespace Infrastructure
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
@@ -67,15 +68,24 @@ namespace Infrastructure
                 dbSet.Remove(entityToDelete);
             });
         }
+        public async Task Update(TEntity entityToUpdate)
+        {
+            var model = _context.Entry(entityToUpdate);
+            model.State = EntityState.Modified;
+            _context.SaveChanges();
+        }
         public async Task UpdateAsync(TEntity entityToUpdate)
         {
             await Task.Run
-            (
-            () =>
+        (
+        () =>
+        {
+            if (_context.Entry(entityToUpdate).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToUpdate);
-                _context.Entry(entityToUpdate).State = EntityState.Modified;
-            });
+            }
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
+        });
         }
         public async Task SaveAsync()
         {
@@ -88,6 +98,7 @@ namespace Infrastructure
         public async Task<TEntity?> GetItemBySpec(Ardalis.Specification.ISpecification<TEntity> specification)
         {
             return await ApplySpecification(specification).FirstOrDefaultAsync();
+
         }
         private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> specification)
         {
@@ -99,9 +110,9 @@ namespace Infrastructure
             await Task.Run
             (
                 () =>
-                {
-                    _context.Attach(entity);
-                });
+                        {
+                            _context.Attach(entity);
+                        });
         }
     }
 }

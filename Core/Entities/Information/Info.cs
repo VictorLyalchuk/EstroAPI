@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Core.Entities.Info
+namespace Core.Entities.Information
 {
     public class Info
     {

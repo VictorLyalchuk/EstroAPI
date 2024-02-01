@@ -20,6 +20,8 @@ namespace Core
             service.AddScoped<IImageService, ImageService>();
             service.AddScoped<IImageForHomeService, ImageForHomeService>();
             service.AddScoped<IInfoService, InfoService>();
+            service.AddScoped<IBagService, BagService>();
+            service.AddScoped<IBagItemsService, BagItemsService>();
 
         }
         public static void AddValidator(this IServiceCollection service)

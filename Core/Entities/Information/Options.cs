@@ -1,9 +1,7 @@
-﻿
-using Core.Entities.Site;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 
-namespace Core.Entities.Info
+namespace Core.Entities.Information
 {
     public class Options
     {

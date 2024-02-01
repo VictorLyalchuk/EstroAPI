@@ -1,5 +1,5 @@
 ﻿using Core.DTOs.Site;
-using Core.Entities.Info;
+using Core.Entities.Information;
 using System;
 using System.Collections.Generic;
 using System.Linq;

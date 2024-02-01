@@ -23,7 +23,7 @@ namespace Core.Services
         public async Task<List<ImageForHome>>? GetAllImageAsync()
         {
             var images = await _imageForHomeRepository.GetAsync();
-            return _mapper.Map <List<ImageForHome>>(images);
+            return _mapper.Map<List<ImageForHome>>(images);
         }
     }
 }

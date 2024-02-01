@@ -1,5 +1,5 @@
 ﻿using Core.Entities.DashBoard;
-using Core.Entities.Info;
+using Core.Entities.Information;
 using Core.Entities.Site;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

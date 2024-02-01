@@ -13,6 +13,7 @@ namespace Core.Interfaces
         Task InsertAsync(TEntity entity);
         Task DeleteAsync(object id);
         Task DeleteAsync(TEntity entityToDelete);
+        Task Update(TEntity entityToUpdate);
         Task UpdateAsync(TEntity entityToUpdate);
         Task SaveAsync();
         Task<TEntity?> GetItemBySpec(ISpecification<TEntity> specification);
