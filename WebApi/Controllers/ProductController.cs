@@ -80,6 +80,7 @@ namespace WebApi.Controllers
             var quantity = await _product.ProductQuantity();
             return Ok(quantity);
         }
+
         [HttpGet("ProductQuantityByFilters/{subName}/{urlName}")]
         public async Task<IActionResult> ProductQuantityByFiltersAsync([FromRoute] string subName, string urlName, [FromQuery] FilterDTO? filterDTO)
         {

@@ -22,6 +22,7 @@ namespace Core
             service.AddScoped<IInfoService, InfoService>();
             service.AddScoped<IBagService, BagService>();
             service.AddScoped<IBagItemsService, BagItemsService>();
+            service.AddScoped<IOrderService, OrderService>();
 
         }
         public static void AddValidator(this IServiceCollection service)

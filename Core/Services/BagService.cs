@@ -103,10 +103,10 @@ namespace Core.Services
             var bag = await _bagRepository.GetItemBySpec(new BagSpecification.GetBagByUserEmail(email));
             return _mapper.Map<BagUserDTO>(bag);
         }
-        public async Task <int> GetCountBagByEmailAsync(string email)
+        public async Task<int> GetCountBagByEmailAsync(string email)
         {
             var bag = await _bagRepository.GetItemBySpec(new BagSpecification.GetBagByUserEmail(email));
-            if(bag != null)
+            if (bag != null)
             {
                 return bag.CountProduct;
             }
@@ -135,6 +135,13 @@ namespace Core.Services
                     bag.CountProduct -= bagItem.Quantity;
                     await _bagRepository.DeleteAsync(bag);
                 }
+                var user = await _userManager.FindByEmailAsync(bag.UserEmail);
+                if (user != null)
+                {
+                    user.BagId = null;
+                    var result = await _userManager.UpdateAsync(user);
+                }
+
             }
 
             await _bagRepository.SaveAsync();

@@ -8,6 +8,7 @@ namespace Core.Entities.Information
         [Key]
         public int Id { get; set; }
         public int ProductId { get; set; }
+        public string Name { get; set; } = string.Empty;
         public Product? Product { get; set; }
         public int Quantity { get; set; }
         public int Size { get; set; }
